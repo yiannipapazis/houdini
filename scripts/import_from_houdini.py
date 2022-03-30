@@ -1,6 +1,7 @@
 import bpy
 import os
 object_path = os.environ['OBJPATH']
+export_path = os.environ['EXPPATH']
 
 bpy.ops.import_scene.obj(filepath=object_path)
 
@@ -17,7 +18,7 @@ class SendToHoudini(bpy.types.Operator):
     bl_label = "Send Back to Houdini"
 
     def execute(self, context):
-        bpy.ops.export_scene.obj(filepath=object_path, use_selection=False)
+        bpy.ops.export_scene.obj(filepath=export_path, use_selection=False)
         return {'FINISHED'}
 
 def register():
